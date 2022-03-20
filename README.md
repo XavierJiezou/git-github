@@ -106,11 +106,14 @@
 
 添加文件：git add <file> | git rm --cached <file>
 
+针对修改的文件：git add <file> | git restore <file>（还原修改）
+
 ### 远程库操作
 
 ## Git 图形化界面操作
 
 ## Gitlab 服务器环境搭建
+
 
 ## 参考
 
