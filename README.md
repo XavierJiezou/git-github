@@ -108,6 +108,8 @@
 
 针对修改的文件：git add <file> | git restore <file>（还原修改）
 
+提交：git commit -m "message" <file>
+
 ### 远程库操作
 
 ## Git 图形化界面操作
