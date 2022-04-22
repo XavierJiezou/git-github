@@ -102,13 +102,58 @@
 项目级别配置信息保存在 `./.git/config` 文件里面
 系统级别配置信息保存在 `/c/users/xxx/.gitconfig` 文件里面
 
-查看状态：git status
+查看状态：git status 查看工作区和暂存区的状态
 
-添加文件：git add <file> | git rm --cached <file>
+添加文件：git add <file> | git rm --cached <file> 将工作区的新建/修改添加到暂存区
 
 针对修改的文件：git add <file> | git restore <file>（还原修改）
 
-提交：git commit -m "message" <file>
+提交：git commit -m "message" <file> 将暂存区的内容提交到本地库
+
+git log 提交日志
+git log --pretty=oneline
+git log --oneline
+git reflog # 可以看到到某一个版本需要移动几步
+
+HEAD 是指针名称，基于该指针可以实现历史记录的前进和后退
+
+前进后退
+
+git reset --hard 8475a00
+git reset --hard HEAD^ 一个 ^后退一个，n个就后退n步
+git reset --hard HEAD~n 后退n步
+
+reset 命令的三个参数对比：git reset --help
+
+- soft:仅仅在本地库移动指针
+- mixed：在本地库移动指针和重置暂存区
+- hard：在本地库移动指针和重置暂存区和重置工作区
+
+通过版本回退可以找回永久删除的文件
+
+git diff <file>：比较工作区文件和暂存区中同名文件的差异
+git diff HEAD <file>: 比较工作区文件和本地库中同名文件的差异
+git diff HEAD^ <file>：比较工作区文件和上一个历史版本同名文件的差异
+不带文件名就是同时比较多个文件。
+
+分支概述
+
+- 同时并行推进多个功能开发，提高效率
+- 各个分支之间不会相互影响
+
+git branch -v 查看当前所有分支
+
+git branch <name>：创建分支
+git checkout <name>：切换分支（当前所在分支使用*标识，支持 table 建智能补全）
+
+合并分支
+
+- 切换到需要修改的分支上
+- 执行 git merge <other_branch_name> 命令
+
+合并分支时产生冲突如何解决？
+
+冲突是如何产生的？在 a 分支中我们将变量 x 修改为 1，在 b 分支中我们将变量 x 修改为 2  
 
 ### 远程库操作
 
